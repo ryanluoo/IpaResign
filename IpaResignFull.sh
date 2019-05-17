@@ -3,7 +3,7 @@
 
 function usage(){
 
-    echo "IpaResignEx is a wrapper of IpaResign."
+    echo "IpaResignFull inject dylib and resign the ipa."
     echo "-p : Provision profile"
     echo "-i : Input ipa"
     echo "-d : Injected dylib (Optional)"
