@@ -1,2 +1,3 @@
 *.ipa
+*.dylib
 cert/

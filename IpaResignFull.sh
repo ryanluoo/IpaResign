@@ -11,7 +11,7 @@ function usage(){
 
 }
 
-while getopts ':p:i:c:' opt
+while getopts ':p:i:d:' opt
 do
     case $opt in
          p) MOBILE_PROVISION=$OPTARG
@@ -214,7 +214,8 @@ else
 
     # 重签并注入dylib
     if [[ -n "$DYLIB_FILE" ]]; then
-        /usr/bincodesign -f -s "$SELECT_CER" --force --verbose=4 "$DYLIB_FILE"
+        # /usr/bin/codesign -f -s "$SELECT_CER" --force --verbose=4 "$DYLIB_FILE"
+        /usr/bin/codesign -f -s "$SELECT_CER" "$DYLIB_FILE"
         cp -f "$DYLIB_FILE" Payload/*.app/
         echo "Injecting dylib into the executable file..."
         ./yololib "$EXE_FILE_FULL_PATH" $DYLIB_FILE
