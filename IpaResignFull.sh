@@ -149,17 +149,31 @@ echo
 unzip -q $SRC_IPA
 
 #删除无关文件
-if  test -f "bppinfo"; then
-	rm "bppinfo"
+if  [ -f Payload/*.app/bppinfo ]; then
+    echo "delete Payload/*.app/bppinfo"
+	rm Payload/*.app/bppinfo
 fi
 
-if  test -f "iTunesArtwork"; then
-	rm "iTunesArtwork"
+if  [ -f Payload/*.app/iTunesArtwork ]; then
+	echo "delete Payload/*.app/iTunesArtwork"
+	rm Payload/*.app/iTunesArtwork
 fi
 
-if  test -d "META-INF"; then
-	rm -rf "META-INF"
+if  [ -d Payload/*.app/META-INF ]; then
+	echo "delete Payload/*.app/META-INF"
+	rm -rf Payload/*.app/META-INF
 fi
+
+if  [ -d Payload/*.app/PlugIns ]; then
+	echo "delete Payload/*.app/PlugIns"
+	rm -rf Payload/*.app/PlugIns
+fi
+
+if  [ -d Payload/*.app/Watch ]; then
+	echo "delte Payload/*.app/Watch"
+	rm -rf Payload/*.app/Watch
+fi
+
 
 # 重签名之后的ipa文件
 if  test -f $DST_IPA; then
